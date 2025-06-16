@@ -12,17 +12,17 @@ router
   .get(userController.renderSignupForm)
   .post(wrapAsync(userController.signup));
 
-router.get("/login", userController.renderLoginForm);
-
-router.post(
-  "/login",
+  router.route("/login")
+  .get( userController.renderLoginForm)
+  .post(
   saveRedirectUrl,
   passport.authenticate("local", {
     failureRedirect: "/login",
     failureFlash: true,
   }),
   userController.login
-);
+)
+
 
 router.get("/logout", userController.logout);
 
