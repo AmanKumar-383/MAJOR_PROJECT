@@ -10,13 +10,8 @@ const listingSchema = new Schema({
   },
   description: String,
   image: {
-    type: String,
-    default:
-      "https://unsplash.com/photos/woman-explores-a-lush-green-forest-with-a-waterfall-QAR2r9db_y8",
-    set: (v) =>
-      v === ""
-        ? "https://unsplash.com/photos/woman-explores-a-lush-green-forest-with-a-waterfall-QAR2r9db_y8"
-        : v,
+    url: String,
+    filename: String,
   },
   price: Number,
   location: String,
